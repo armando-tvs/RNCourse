@@ -1,12 +1,19 @@
 import { useState } from 'react';
-import { Button, FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  Button,
+  FlatList,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 
 export default function App() {
   const [currentGoal, setCurrentGoal] = useState('');
-  const [goalsList, setGoalsList] = useState([])
+  const [goalsList, setGoalsList] = useState([]);
 
   const addGoalsToList = () => {
-    setGoalsList((currentList) => ([...currentList, currentGoal]));
+    setGoalsList((currentList) => [...currentList, currentGoal]);
     setCurrentGoal('');
   };
 
@@ -19,14 +26,14 @@ export default function App() {
           value={currentGoal}
           onChangeText={(newValue) => setCurrentGoal(newValue)}
         />
-        <Button title="Add" onPress={addGoalsToList}/>
+        <Button title="Add" onPress={addGoalsToList} />
       </View>
       <View style={styles.goalsContainer}>
-        {goalsList.length ? (
-          <FlatList data={goalsList} renderItem={({ item: goal }) => <Text>{goal}</Text>} />
-        ) : (
-          <Text>You have not goals yet</Text>
-        )}
+        <FlatList
+          data={goalsList}
+          renderItem={({ item: goal }) => <Text>{goal}</Text>}
+          ListEmptyComponent={<Text>You have not goals yet</Text>}
+        />
       </View>
     </View>
   );

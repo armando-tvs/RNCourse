@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'prettier-eslint'],
+  extends: ['plugin:react/recommended', 'airbnb'],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -24,5 +24,6 @@ module.exports = {
         ignoreTemplateLiterals: true,
       },
     ],
+    'no-use-before-define': 'off'
   },
 };
