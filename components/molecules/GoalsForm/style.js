@@ -16,7 +16,7 @@ const goalsFormStyle = StyleSheet.create({
     width: '70%',
     marginRight: 8,
     padding: 8,
-  }
+  },
 });
 
 export default goalsFormStyle;

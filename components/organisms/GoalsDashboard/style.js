@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 50,
     paddingHorizontal: 16,
-  }
+  },
 });
 
 export default styles;
