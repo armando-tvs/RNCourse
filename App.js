@@ -1,11 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Button, FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
+  const [currentGoal, setCurrentGoal] = useState('');
+  const [goalsList, setGoalsList] = useState([])
+
+  const addGoalsToList = () => {
+    setGoalsList((currentList) => ([...currentList, currentGoal]));
+    setCurrentGoal('');
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <View style={styles.formContainer}>
+        <TextInput
+          style={styles.goalInput}
+          placeholder="Course goal"
+          value={currentGoal}
+          onChangeText={(newValue) => setCurrentGoal(newValue)}
+        />
+        <Button title="Add" onPress={addGoalsToList}/>
+      </View>
+      <View style={styles.goalsContainer}>
+        {goalsList.length ? (
+          <FlatList data={goalsList} renderItem={({ item: goal }) => <Text>{goal}</Text>} />
+        ) : (
+          <Text>You have not goals yet</Text>
+        )}
+      </View>
     </View>
   );
 }
@@ -13,8 +35,26 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    paddingTop: 50,
+    paddingHorizontal: 16,
+  },
+  formContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    justifyContent: 'center',
+    marginBottom: 24,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+  },
+  goalInput: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    width: '70%',
+    marginRight: 8,
+    padding: 8,
+  },
+  goalsContainer: {
+    flex: 5,
   },
 });
