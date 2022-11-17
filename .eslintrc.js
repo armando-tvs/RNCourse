@@ -11,6 +11,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    'react/function-component-definition': 'off',
     'react/jsx-filename-extension': 'off',
     'comma-dangle': 'off',
     'react/react-in-jsx-scope': 'off',
@@ -24,6 +25,6 @@ module.exports = {
         ignoreTemplateLiterals: true,
       },
     ],
-    'no-use-before-define': 'off'
+    'arrow-body-style': 'warn',
   },
 };
