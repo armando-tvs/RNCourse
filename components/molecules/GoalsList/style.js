@@ -8,14 +8,14 @@ const goalsListStyle = StyleSheet.create({
     marginBottom: 8,
     backgroundColor: '#66b2b2',
     height: 48,
-    borderRadius: 8
+    borderRadius: 8,
   },
   itemContent: {
     textAlignVertical: 'center',
     color: '#fff',
     fontSize: 16,
     padding: 8,
-  }
+  },
 });
 
 export default goalsListStyle;
