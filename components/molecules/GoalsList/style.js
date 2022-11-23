@@ -15,7 +15,17 @@ const goalsListStyle = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     padding: 8,
+    height: 48,
   },
 });
 
-export default goalsListStyle;
+const invertedGoalsListStyle = StyleSheet.create({
+  item: {
+    backgroundColor: '#fff',
+  },
+  itemContent: {
+    color: '#66b2b2',
+  },
+});
+
+export { goalsListStyle, invertedGoalsListStyle };

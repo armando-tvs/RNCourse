@@ -26,5 +26,8 @@ module.exports = {
       },
     ],
     'arrow-body-style': 'warn',
+    'object-curly-newline': 'off',
+    'react/jsx-wrap-multilines': 'off',
+    'implicit-arrow-linebreak': 'off',
   },
 };
